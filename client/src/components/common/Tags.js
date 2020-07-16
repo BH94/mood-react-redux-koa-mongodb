@@ -8,7 +8,8 @@ const TagsBlock = styled.div`
     display: inline-block;
     text-decoration: none;
     margin-right: 0.5rem;
-    color: #28594b;
+    /* color: #28594b; */
+    color: rgb(0, 130, 140);
     font-weight: bolder;
     &:hover {
     }

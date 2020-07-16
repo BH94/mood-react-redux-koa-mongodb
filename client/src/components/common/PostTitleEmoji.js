@@ -8,9 +8,11 @@ const PostTitleEmojiDiv = styled.div`
 
   .title {
     width: 80%;
+
     h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      font-weight: 700;
     }
 
     h1 {

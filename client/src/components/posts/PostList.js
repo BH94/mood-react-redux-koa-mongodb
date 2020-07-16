@@ -62,8 +62,8 @@ const ItemsBlock = styled.div`
     width: 100%;
   }
 
-  a {
-    color: #34444c;
+  .title-item {
+    color: white;
     text-decoration: none;
     cursor: pointer;
   }
@@ -109,7 +109,7 @@ const PostItem = ({ post }) => {
         <PostTitleEmojiDiv>
           <div className="title">
             <h2>
-              <Link to={`/@${user.username}/${_id}`}>
+              <Link className="title-item" to={`/@${user.username}/${_id}`}>
                 {title.length < 20 ? title : title.slice(0, 30) + '...'}
               </Link>
             </h2>

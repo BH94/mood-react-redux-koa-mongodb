@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import Headroom from 'react-headroom';
 
 const Wrapper = styled.div`
-  min-height: 10vh;
+  min-height: 5vh;
   margin: auto;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  height: 100%;
 
   @media screen and (max-width: 1311px) {
     text-align: center;
@@ -79,8 +80,9 @@ const Header = ({ user, onLogout }) => {
     <div>
       <Headroom
         style={{
-          background: '#131c27',
+          background: '#00828C',
           boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.08)',
+          minHeight: '4rem',
         }}
       >
         {/* <HeaderBlock style={{ zIndex: 3 }}> */}

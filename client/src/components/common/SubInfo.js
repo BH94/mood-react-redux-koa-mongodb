@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 
 const SubInfoBlock = styled.div`
   .user-block {
-    background: #28594b;
-    border-radius: 5px;
+    /* background: #28594b; */
+    /* border-radius: 5px; */
+    background: rgba(255, 255, 255, 0.7);
 
     text-align: center;
     padding: 3px 6px;
 
     a {
-      color: white;
+      color: black;
       text-decoration: none;
     }
   }

@@ -8,10 +8,11 @@ import PostTitleEmojiDiv from '../common/PostTitleEmoji';
 const PostViewerBlock = styled(BackgroundDiv)``;
 
 const PostBlock = styled.div`
-  width: 100%;
+  width: 75%;
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
+  align-self: center;
 `;
 
 const PostContent = styled.div`
