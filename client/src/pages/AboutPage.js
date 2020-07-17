@@ -1,7 +1,7 @@
 import React from 'react';
 
 import HeadContainer from '../containers/common/HeaderContainer';
-import LandingContainer from '../containers/Home/LandingContainer';
+import LandingContainer from '../containers/about/LandingContainer';
 
 const AboutPage = () => {
   return (

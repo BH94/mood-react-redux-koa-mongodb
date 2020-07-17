@@ -72,6 +72,11 @@ const Wrapper = styled.div`
         box-shadow: 0 -20px 0 0 rgba(192, 108, 132, 1) inset;
       }
     }
+
+    .user {
+      font-weight: bolder;
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -93,32 +98,34 @@ const Header = ({ user, onLogout }) => {
           <nav className="right">
             {user ? (
               <li>
-                <Link to={`/?username=${user.username}`}>{user.username}</Link>
+                <Link to={`/?username=${user.username}`} className="user">
+                  {user.username}
+                </Link>
               </li>
             ) : (
               <li>
                 <Link to="/about" className="about">
-                  About
+                  ABOUT
                 </Link>
               </li>
             )}
             {user ? (
               <li>
                 <Link to="/" onClick={onLogout} className="logout">
-                  로그아웃
+                  LOGOUT
                 </Link>
               </li>
             ) : (
               <li>
                 <Link className="login" to="/login">
-                  로그인
+                  SIGN IN
                 </Link>
               </li>
             )}
             {!user && (
               <li>
                 <Link className="register" to="/register">
-                  회원 가입
+                  SIGN UP
                 </Link>
               </li>
             )}

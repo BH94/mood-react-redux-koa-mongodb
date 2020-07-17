@@ -158,7 +158,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
     <PostListBlock>
       <WritePostButtonWrapper>
         {showWriteButton && (
-          <NewWriteButton to="/write">새 글 작성하기</NewWriteButton>
+          <NewWriteButton to="/write">NEW POST</NewWriteButton>
         )}
       </WritePostButtonWrapper>
       {!loading && posts && (
