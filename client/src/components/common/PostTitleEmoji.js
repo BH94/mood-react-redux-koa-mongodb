@@ -16,6 +16,7 @@ const PostTitleEmojiDiv = styled.div`
     }
 
     h1 {
+      color: white;
       font-size: 3rem;
       line-height: 1.5;
       margin: 0;

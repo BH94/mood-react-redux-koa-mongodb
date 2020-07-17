@@ -91,8 +91,9 @@ const emojiList = [
   'em em-cry',
 ];
 
-const Editor = ({ emotion, title, content, onChangeField }) => {
+const Editor = ({ imageList, emotion, title, content, onChangeField }) => {
   const [choiceEmoji, setChoiceEmoji] = useState('');
+  const [image, setImage] = useState([]);
 
   const onChangeTitle = (e) => {
     onChangeField({ key: 'title', value: e.target.value });
@@ -107,10 +108,15 @@ const Editor = ({ emotion, title, content, onChangeField }) => {
     onChangeField({ key: 'emotion', value: i });
   };
 
+  const onChangeImage = (newImage) => {
+    setImage(newImage);
+    onChangeField({ key: 'imageList', value: newImage });
+  };
+
   return (
     <div>
-      <ImageUploader />
-      {/* <EmojiBlock>
+      <ImageUploader onChangeImage={onChangeImage} imageList={imageList} />
+      <EmojiBlock>
         {emojiList.map((emoji) => (
           <EmoJi
             key={emoji}
@@ -120,7 +126,7 @@ const Editor = ({ emotion, title, content, onChangeField }) => {
             <i className={emoji} />
           </EmoJi>
         ))}
-      </EmojiBlock> */}
+      </EmojiBlock>
       <TitleInput
         placeholder="제목 입력..."
         value={title}

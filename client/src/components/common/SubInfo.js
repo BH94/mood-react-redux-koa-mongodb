@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 const SubInfoBlock = styled.div`
   .user-block {
-    /* background: #28594b; */
-    /* border-radius: 5px; */
     background: rgba(255, 255, 255, 0.7);
 
     text-align: center;
@@ -42,7 +40,9 @@ const SubInfo = ({ username, publishedDate, hasMarginTop }) => {
           <Link to={`/?username=${username}`}>{username}</Link>
         </b>
       </span>
-      <span>{new Date(publishedDate).toLocaleDateString()}</span>
+      <span style={{ color: 'white' }}>
+        {new Date(publishedDate).toLocaleDateString()}
+      </span>
     </SubInfoBlock>
   );
 };

@@ -1,29 +1,8 @@
 import Post from '../../models/post';
 import mongoose from 'mongoose';
 import Joi from 'joi';
-// import multer from 'koa-multer';
 
 const { ObjectId } = mongoose.Types;
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'uploads/');
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, `${Date.now()}_${file.originalname}`);
-//   },
-// });
-
-// const upload = multer({ storage: storage }).single('file');
-
-// export const imageUpload = async (ctx, next) => {
-//   console.log(ctx.req.body);
-//   ctx.body = {
-//     success: true,
-//     data: ctx.state,
-//   };
-//   return;
-// };
 
 export const getPostById = async (ctx, next) => {
   const { id } = ctx.params;
@@ -55,6 +34,7 @@ export const checkOwnPost = (ctx, next) => {
 
 export const write = async (ctx) => {
   const schema = Joi.object().keys({
+    imageList: Joi.array().items(Joi.string().required()),
     emotion: Joi.string().required(),
     title: Joi.string().required(),
     content: Joi.string().required(),
@@ -65,12 +45,14 @@ export const write = async (ctx) => {
   if (result.error) {
     ctx.status = 400;
     ctx.body = result.error;
+    console.log(result.error);
     return;
   }
 
-  const { emotion, title, content, tags } = ctx.request.body;
+  const { imageList, emotion, title, content, tags } = ctx.request.body;
 
   const post = new Post({
+    imageList,
     emotion,
     title,
     content,
@@ -133,6 +115,7 @@ export const remove = async (ctx) => {
 export const update = async (ctx) => {
   const { id } = ctx.params;
   const schema = Joi.object().keys({
+    imageList: Joi.array().items(Joi.string()),
     emotion: Joi.string(),
     title: Joi.string(),
     content: Joi.string(),

@@ -8,11 +8,13 @@ import PaginationContainer from '../containers/posts/PaginationContainer';
 
 const PostListPage = () => {
   return (
-    <BackgroundDiv>
+    <>
       <HeaderContainer />
-      <PostListContainer />
-      <PaginationContainer />
-    </BackgroundDiv>
+      <BackgroundDiv>
+        <PostListContainer />
+        <PaginationContainer />
+      </BackgroundDiv>
+    </>
   );
 };
 

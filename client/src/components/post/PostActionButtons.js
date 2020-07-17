@@ -9,14 +9,16 @@ const PostActionButtonBlock = styled.div`
 `;
 
 const ActionButton = styled.button`
+  background: rgba(255, 255, 255, 0.5);
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
   font-weight: bolder;
   border-radius: 4px;
   cursor: pointer;
   border: none;
+  color: white;
   color: ${(props) => props.hc || 'black'};
-  background: none;
+  /* background: none; */
 
   &:hover {
     background: ${(props) => props.hc || 'black'};
@@ -48,10 +50,10 @@ const PostActionButton = ({ onEdit, onRemove }) => {
     <>
       <PostActionButtonBlock>
         <ActionButton onClick={onEdit} hc="rgb(69, 66, 105)">
-          수정
+          EDIT
         </ActionButton>
-        <ActionButton onClick={onRemoveClick} hc="#C26646">
-          삭제
+        <ActionButton onClick={onRemoveClick} hc="rgb(124,10,2)">
+          DELETE
         </ActionButton>
       </PostActionButtonBlock>
       <AskRemoveModal

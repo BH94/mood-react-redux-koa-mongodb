@@ -8,8 +8,6 @@ import SubInfo from '../common/SubInfo';
 import Tags from '../common/Tags';
 import { Link } from 'react-router-dom';
 
-import backTestImg from '../../img/backTestImg.jpg';
-
 const PostListBlock = styled(Responsive)`
   /* margin-top: 3rem; */
   width: 90%;
@@ -22,8 +20,7 @@ const WritePostButtonWrapper = styled.div`
 `;
 
 const PostItemBlock = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 100%, transparent),
-    url(${backTestImg});
+  background-image: ${(props) => `url(${props.imgUrl})`};
   background-size: cover;
   background-position: center;
   position: relative;
@@ -102,21 +99,40 @@ const NewWriteButton = styled(Button)`
 `;
 
 const PostItem = ({ post }) => {
-  const { emotion, publishedDate, user, tags, title, content, _id } = post;
+  const {
+    imageList,
+    emotion,
+    publishedDate,
+    user,
+    tags,
+    title,
+    content,
+    _id,
+  } = post;
+
+  const backImg = imageList[0];
+
   return (
-    <PostItemBlock>
+    <PostItemBlock imgUrl={`http://localhost:5000/${backImg}`}>
+      {/* <div>
+        <BackgroundSlider
+          images={[
+            `http://localhost:5000/${backImg}`,
+            `http://localhost:5000/${backImg2}`,
+          ]}
+          duration={10}
+          transition={2}
+        />
+      </div> */}
       <ItemsBlock>
         <PostTitleEmojiDiv>
           <div className="title">
             <h2>
               <Link className="title-item" to={`/@${user.username}/${_id}`}>
-                {title.length < 20 ? title : title.slice(0, 30) + '...'}
+                {title.length < 30 ? title : title.slice(0, 30) + '...'}
               </Link>
             </h2>
           </div>
-          {/* <div className="emoji">
-            <i className={emotion} />
-          </div> */}
         </PostTitleEmojiDiv>
         <SubInfo
           username={user.username}

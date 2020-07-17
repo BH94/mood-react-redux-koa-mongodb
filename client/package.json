@@ -11,6 +11,7 @@
     "immer": "^6.0.9",
     "qs": "^6.9.4",
     "react": "^16.13.1",
+    "react-background-slider": "^2.0.0",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.2",
     "react-headroom": "^3.0.0",

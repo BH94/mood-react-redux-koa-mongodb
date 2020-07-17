@@ -18,7 +18,7 @@ const UploadImagesList = styled.div`
   width: 100%;
   align-items: center;
   justify-content: left;
-  overflow-x: auto;
+  overflow-x: scroll;
   img {
     border-radius: 10px;
     min-width: 14rem;
@@ -51,7 +51,7 @@ const DropZone = styled.div`
   /* border: 2px solid white; */
 `;
 
-const ImageUploader = () => {
+const ImageUploader = (props) => {
   const [images, setImages] = useState([]);
 
   const dropHandler = (files) => {
@@ -63,20 +63,44 @@ const ImageUploader = () => {
     axios.post('/api/posts/image', formData, config).then((response) => {
       if (response.data.success) {
         setImages([...images, response.data.fileName]);
+        props.onChangeImage([...images, response.data.fileName]);
       } else {
         alert('fail');
       }
     });
   };
 
+  const deleteHandler = (image) => {
+    const currentIndex = images.indexOf(image);
+
+    const newImages = [...images];
+    newImages.splice(currentIndex, 1);
+
+    setImages(newImages);
+    props.onChangeImage(newImages);
+  };
+
   return (
     <ImageUploadWrapper>
       <UploadImagesList>
-        {images.map((image, idx) => (
-          <div className="img-box" key={idx}>
+        {props.imageList.map((image, idx) => (
+          <div
+            className="img-box"
+            key={idx}
+            onClick={() => deleteHandler(image)}
+          >
             <img src={`http://localhost:5000/${image}`} width="30%" />
           </div>
         ))}
+        {/* {images.map((image, idx) => (
+          <div
+            className="img-box"
+            key={idx}
+            onClick={() => deleteHandler(image)}
+          >
+            <img src={`http://localhost:5000/${image}`} width="30%" />
+          </div>
+        ))} */}
         <Dropzone onDrop={dropHandler}>
           {({ getRootProps, getInputProps }) => (
             <section>

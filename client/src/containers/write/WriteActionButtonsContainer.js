@@ -7,6 +7,7 @@ import { writePost, updatePost } from '../../modules/write';
 const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
   const {
+    imageList,
     emotion,
     title,
     content,
@@ -15,6 +16,7 @@ const WriteActionButtonsContainer = ({ history }) => {
     postError,
     originalPostId,
   } = useSelector(({ write }) => ({
+    imageList: write.imageList,
     emotion: write.emotion,
     title: write.title,
     content: write.content,
@@ -27,11 +29,18 @@ const WriteActionButtonsContainer = ({ history }) => {
   const onPublish = () => {
     if (originalPostId) {
       dispatch(
-        updatePost({ emotion, title, content, tags, id: originalPostId }),
+        updatePost({
+          imageList,
+          emotion,
+          title,
+          content,
+          tags,
+          id: originalPostId,
+        }),
       );
       return;
     }
-    dispatch(writePost({ emotion, title, content, tags }));
+    dispatch(writePost({ imageList, emotion, title, content, tags }));
   };
 
   const onCancel = () => {
