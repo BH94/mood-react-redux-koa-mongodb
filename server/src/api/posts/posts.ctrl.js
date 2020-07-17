@@ -1,7 +1,7 @@
 import Post from '../../models/post';
 import mongoose from 'mongoose';
 import Joi from 'joi';
-import multer from 'koa-multer';
+// import multer from 'koa-multer';
 
 const { ObjectId } = mongoose.Types;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import writePageBackgroundImg from '../../img/writePageBackground.jpg';
 
 const WriteTemplateBlock = styled.div`
   height: 100%;
@@ -13,12 +14,13 @@ const WriteTemplateBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url(${writePageBackgroundImg});
 `;
 
 const InputBlock = styled.div`
   opacity: 0.9;
   width: 60%;
-  height: 80%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;

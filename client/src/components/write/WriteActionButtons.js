@@ -13,14 +13,18 @@ const WriteActionButtonBlock = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  border: 2px solid #4c6e97;
+  /* border: 2px solid rgb(0, 130, 140); */
+  border: none;
+  color: rgb(0, 130, 140);
   & + & {
     margin-left: 0.5rem;
   }
 `;
 
 const StyledCancelButton = styled(Button)`
-  border: 2px solid #f67280;
+  /* border: 2px solid #f67280; */
+  border: none;
+  color: #f67280;
   &:hover {
     background: #f67280;
   }

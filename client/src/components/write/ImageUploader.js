@@ -1,23 +1,54 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
-const DropzoneDiv = styled.div`
+const ImageUploadWrapper = styled.div`
+  display: flex;
   width: 100%;
-  min-height: 5rem;
+  background: none;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`;
+
+const UploadImagesList = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: left;
+  overflow-x: auto;
+  img {
+    border-radius: 10px;
+    min-width: 14rem;
+    width: 14rem;
+    height: 14rem;
+  }
+  .img-box {
+    margin-left: 1rem;
+    position: relative;
+    /* .close-btn {
+      visibility: hidden;
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+    &:hover .close-btn {
+      visibility: visible;
+    } */
+  }
 `;
 
 const DropZone = styled.div`
-  width: 100%;
+  min-width: 14rem;
+  width: 14rem;
+  height: 14rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: #e0e5ec;
-  border: 2px solid white;
   background: none;
+  /* border: 2px solid white; */
 `;
 
 const ImageUploader = () => {
@@ -31,10 +62,7 @@ const ImageUploader = () => {
     formData.append('file', files[0]);
     axios.post('/api/posts/image', formData, config).then((response) => {
       if (response.data.success) {
-        console.log(response.data);
-        setImages([...images, response.data.filePath]);
-        console.log(images);
-        alert('success');
+        setImages([...images, response.data.fileName]);
       } else {
         alert('fail');
       }
@@ -42,27 +70,25 @@ const ImageUploader = () => {
   };
 
   return (
-    <>
-      <DropzoneDiv>
+    <ImageUploadWrapper>
+      <UploadImagesList>
+        {images.map((image, idx) => (
+          <div className="img-box" key={idx}>
+            <img src={`http://localhost:5000/${image}`} width="30%" />
+          </div>
+        ))}
         <Dropzone onDrop={dropHandler}>
           {({ getRootProps, getInputProps }) => (
             <section>
               <DropZone {...getRootProps()}>
                 <input {...getInputProps()} />
-                <PlusCircleOutlined
-                  style={{ fontSize: '5rem', color: 'white' }}
-                />
+                <PlusOutlined style={{ fontSize: '2.4rem', color: 'white' }} />
               </DropZone>
             </section>
           )}
         </Dropzone>
-      </DropzoneDiv>
-      {images.map((image, idx) => (
-        <div>
-          <img src={`http://localhost:5000/${image}`} />
-        </div>
-      ))}
-    </>
+      </UploadImagesList>
+    </ImageUploadWrapper>
   );
 };
 

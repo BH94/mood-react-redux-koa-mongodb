@@ -14,7 +14,6 @@ const TagForm = styled.form`
     background: none;
     outline: none;
     border: none;
-    color: white;
 
     width: 100%;
     caret-color: white;
@@ -113,7 +112,7 @@ const Tagbox = ({ tags, onChangeTags }) => {
     <TagBoxBlock>
       <TagForm onSubmit={onSubmit}>
         <input
-          placeholder="태그를 추가해볼까요?"
+          placeholder="해시태그 추가.."
           value={input}
           onChange={onChange}
         />

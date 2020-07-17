@@ -17,8 +17,8 @@ const buttonStyle = css`
   text-decoration: none;
   &:hover {
     /* border: none; */
-    color: #fff;
-    background: #4c6e97;
+    color: white;
+    background: rgb(0, 130, 140);
   }
   ${(props) =>
     props.fullWidth &&

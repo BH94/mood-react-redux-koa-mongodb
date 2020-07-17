@@ -28,6 +28,7 @@ posts.post('/image', upload.single('file'), async (ctx) => {
   ctx.body = {
     success: true,
     filePath: ctx.file.path,
+    fileName: ctx.file.filename,
   };
 });
 

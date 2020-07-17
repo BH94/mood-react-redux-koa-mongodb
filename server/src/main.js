@@ -3,7 +3,8 @@ import koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import mongoose from 'mongoose';
-// import cors from 'cors';
+import cors from '@koa/cors';
+import serve from 'koa-static';
 
 import api from './api';
 import jwtMiddleware from './lib/jwtMiddleware';
@@ -11,7 +12,11 @@ import jwtMiddleware from './lib/jwtMiddleware';
 const { PORT, MONGO_URI } = process.env;
 
 mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useFindAndModify: false })
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -24,13 +29,15 @@ const router = new Router();
 
 router.use('/api', api.routes());
 
+app.use(serve('./uploads'));
+
 app.use(bodyParser());
 app.use(jwtMiddleware);
-// app.use(cors());
+app.use(cors());
 
 app.use(router.routes()).use(router.allowedMethods());
 
-const port = PORT || 4000;
+const port = PORT || 5000;
 
 app.listen(port, () => {
   console.log('Port %d is working', port);

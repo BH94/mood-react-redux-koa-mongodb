@@ -8,7 +8,6 @@ const TitleInput = styled.input`
   outline: none;
   border: none;
   caret-color: white;
-  color: white;
   border-bottom: 4px solid white;
   width: 100%;
 
@@ -22,7 +21,6 @@ const ContentInput = styled.textarea`
   outline: none;
   border: none;
   caret-color: white;
-  color: white;
   border-bottom: 4px solid white;
   font-size: 2rem;
   margin-top: 2rem;
@@ -110,9 +108,9 @@ const Editor = ({ emotion, title, content, onChangeField }) => {
   };
 
   return (
-    <>
+    <div>
       <ImageUploader />
-      <EmojiBlock>
+      {/* <EmojiBlock>
         {emojiList.map((emoji) => (
           <EmoJi
             key={emoji}
@@ -122,19 +120,19 @@ const Editor = ({ emotion, title, content, onChangeField }) => {
             <i className={emoji} />
           </EmoJi>
         ))}
-      </EmojiBlock>
+      </EmojiBlock> */}
       <TitleInput
-        placeholder="오늘 기분은 어땠나요?"
+        placeholder="제목 입력..."
         value={title}
         onChange={onChangeTitle}
       />
       <ContentInput
-        placeholder="조금 더 자세히 이야기해줄 수 있나요?"
+        placeholder="문구 입력..."
         rows="5"
         value={content}
         onChange={onChangeContent}
       />
-    </>
+    </div>
   );
 };
 
