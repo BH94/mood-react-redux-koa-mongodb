@@ -114,7 +114,7 @@ const Editor = ({ imageList, emotion, title, content, onChangeField }) => {
   };
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <ImageUploader onChangeImage={onChangeImage} imageList={imageList} />
       <EmojiBlock>
         {emojiList.map((emoji) => (

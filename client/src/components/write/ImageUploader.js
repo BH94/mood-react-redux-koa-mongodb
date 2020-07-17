@@ -18,7 +18,7 @@ const UploadImagesList = styled.div`
   width: 100%;
   align-items: center;
   justify-content: left;
-  overflow-x: scroll;
+  overflow-x: auto;
   img {
     border-radius: 10px;
     min-width: 14rem;
@@ -83,6 +83,16 @@ const ImageUploader = (props) => {
   return (
     <ImageUploadWrapper>
       <UploadImagesList>
+        <Dropzone onDrop={dropHandler}>
+          {({ getRootProps, getInputProps }) => (
+            <section>
+              <DropZone {...getRootProps()}>
+                <input {...getInputProps()} />
+                <PlusOutlined style={{ fontSize: '2.4rem', color: 'white' }} />
+              </DropZone>
+            </section>
+          )}
+        </Dropzone>
         {props.imageList.map((image, idx) => (
           <div
             className="img-box"
@@ -101,16 +111,6 @@ const ImageUploader = (props) => {
             <img src={`http://localhost:5000/${image}`} width="30%" />
           </div>
         ))} */}
-        <Dropzone onDrop={dropHandler}>
-          {({ getRootProps, getInputProps }) => (
-            <section>
-              <DropZone {...getRootProps()}>
-                <input {...getInputProps()} />
-                <PlusOutlined style={{ fontSize: '2.4rem', color: 'white' }} />
-              </DropZone>
-            </section>
-          )}
-        </Dropzone>
       </UploadImagesList>
     </ImageUploadWrapper>
   );

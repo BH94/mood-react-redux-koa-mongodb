@@ -11,6 +11,10 @@ import { Link } from 'react-router-dom';
 const PostListBlock = styled(Responsive)`
   /* margin-top: 3rem; */
   width: 90%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const WritePostButtonWrapper = styled.div`
@@ -42,6 +46,10 @@ const PostItemBlock = styled.div`
 
   & + & {
     margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
