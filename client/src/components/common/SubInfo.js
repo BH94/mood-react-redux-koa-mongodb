@@ -40,7 +40,7 @@ const SubInfo = ({ username, publishedDate, hasMarginTop }) => {
           <Link to={`/?username=${username}`}>{username}</Link>
         </b>
       </span>
-      <span style={{ color: 'white' }}>
+      <span style={{ color: 'white', textShadow: '1px 2px 4px black' }}>
         {new Date(publishedDate).toLocaleDateString()}
       </span>
     </SubInfoBlock>

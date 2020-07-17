@@ -57,12 +57,14 @@ const ItemsBlock = styled.div`
     font-size: 1.2rem;
     word-break: break-all;
     width: 100%;
+    text-shadow: 1px 2px 4px black;
   }
 
   .title-item {
     color: white;
     text-decoration: none;
     cursor: pointer;
+    text-shadow: 1px 2px 4px black;
   }
 
   @media screen and (max-width: 768px) {
