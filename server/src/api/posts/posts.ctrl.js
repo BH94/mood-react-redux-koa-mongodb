@@ -35,7 +35,6 @@ export const checkOwnPost = (ctx, next) => {
 export const write = async (ctx) => {
   const schema = Joi.object().keys({
     imageList: Joi.array().items(Joi.string().required()),
-    emotion: Joi.string().required(),
     title: Joi.string().required(),
     content: Joi.string().required(),
     tags: Joi.array().items(Joi.string().required()),
@@ -49,11 +48,10 @@ export const write = async (ctx) => {
     return;
   }
 
-  const { imageList, emotion, title, content, tags } = ctx.request.body;
+  const { imageList, title, content, tags } = ctx.request.body;
 
   const post = new Post({
     imageList,
-    emotion,
     title,
     content,
     tags,
@@ -105,10 +103,11 @@ export const read = async (ctx) => {
 export const remove = async (ctx) => {
   const { id } = ctx.params;
   try {
-    await Post.findOneAndRemove(id).exec();
+    await Post.findByIdAndRemove(id).exec();
     ctx.status = 204;
   } catch (e) {
     ctx.throw(500, e);
+    console.log(e);
   }
 };
 
@@ -116,7 +115,6 @@ export const update = async (ctx) => {
   const { id } = ctx.params;
   const schema = Joi.object().keys({
     imageList: Joi.array().items(Joi.string()),
-    emotion: Joi.string(),
     title: Joi.string(),
     content: Joi.string(),
     tags: Joi.array().items(Joi.string()),
@@ -126,6 +124,7 @@ export const update = async (ctx) => {
   if (result.error) {
     ctx.status = 400;
     ctx.body = result.error;
+    console.log(result.error);
     return;
   }
 

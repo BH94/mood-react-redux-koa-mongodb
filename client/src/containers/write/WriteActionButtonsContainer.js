@@ -8,7 +8,6 @@ const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
   const {
     imageList,
-    emotion,
     title,
     content,
     tags,
@@ -17,7 +16,6 @@ const WriteActionButtonsContainer = ({ history }) => {
     originalPostId,
   } = useSelector(({ write }) => ({
     imageList: write.imageList,
-    emotion: write.emotion,
     title: write.title,
     content: write.content,
     tags: write.tags,
@@ -31,7 +29,6 @@ const WriteActionButtonsContainer = ({ history }) => {
       dispatch(
         updatePost({
           imageList,
-          emotion,
           title,
           content,
           tags,
@@ -40,7 +37,7 @@ const WriteActionButtonsContainer = ({ history }) => {
       );
       return;
     }
-    dispatch(writePost({ imageList, emotion, title, content, tags }));
+    dispatch(writePost({ imageList, title, content, tags }));
   };
 
   const onCancel = () => {

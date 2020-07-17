@@ -65,15 +65,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
     );
   }
 
-  const {
-    imageList,
-    tags,
-    emotion,
-    title,
-    content,
-    user,
-    publishedDate,
-  } = post;
+  const { imageList, tags, title, content, user, publishedDate } = post;
 
   return (
     <PostViewerBlock imgUrl={`http://localhost:5000/${imageList[0]}`}>
@@ -82,9 +74,6 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
           <div className="title">
             <h1>{title}</h1>
           </div>
-          {/* <div className="emoji">
-            <i className={emotion} />
-          </div> */}
         </PostTitleEmojiDiv>
         <SubInfo
           username={user.username}

@@ -5,9 +5,8 @@ import { changeField, initialize } from '../../modules/write';
 
 const EditorContainer = () => {
   const dispatch = useDispatch();
-  const { imageList, emotion, title, content } = useSelector(({ write }) => ({
+  const { imageList, title, content } = useSelector(({ write }) => ({
     imageList: write.imageList,
-    emotion: write.emotion,
     title: write.title,
     content: write.content,
   }));
@@ -27,7 +26,6 @@ const EditorContainer = () => {
     <Editor
       onChangeField={onChangeField}
       imageList={imageList}
-      emotion={emotion}
       title={title}
       content={content}
     />

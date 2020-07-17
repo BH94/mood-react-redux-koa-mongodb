@@ -23,19 +23,9 @@ const PostTitleEmojiDiv = styled.div`
     }
   }
 
-  .emoji {
-    width: 10%;
-
-    i {
-      margin-left: 1.8rem;
-      font-size: 2.5rem;
-    }
-  }
-
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
-    .title,
-    .emoji {
+    .title {
       width: 100%;
       h2 {
         font-size: 1.8rem;
@@ -48,12 +38,6 @@ const PostTitleEmojiDiv = styled.div`
 
     .title {
       margin-top: 1rem;
-    }
-
-    .emoji {
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
   @media screen and (max-width: 425px) {

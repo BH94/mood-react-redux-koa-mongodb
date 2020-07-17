@@ -109,16 +109,7 @@ const NewWriteButton = styled(Button)`
 `;
 
 const PostItem = ({ post }) => {
-  const {
-    imageList,
-    emotion,
-    publishedDate,
-    user,
-    tags,
-    title,
-    content,
-    _id,
-  } = post;
+  const { imageList, publishedDate, user, tags, title, content, _id } = post;
 
   const backImg = imageList[0];
 

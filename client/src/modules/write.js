@@ -31,9 +31,8 @@ export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => post);
 
 export const writePost = createAction(
   WRITE_POST,
-  ({ imageList, emotion, title, content, tags }) => ({
+  ({ imageList, title, content, tags }) => ({
     imageList,
-    emotion,
     title,
     content,
     tags,
@@ -42,10 +41,9 @@ export const writePost = createAction(
 
 export const updatePost = createAction(
   UPDATE_POST,
-  ({ id, imageList, emotion, title, content, tags }) => ({
+  ({ id, imageList, title, content, tags }) => ({
     id,
     imageList,
-    emotion,
     title,
     content,
     tags,
@@ -62,7 +60,6 @@ export function* writeSaga() {
 
 const initialState = {
   imageList: [],
-  emotion: '',
   title: '',
   content: '',
   tags: [],
@@ -94,7 +91,6 @@ const write = handleActions(
     [SET_ORIGINAL_POST]: (state, { payload: post }) => ({
       ...state,
       imageList: post.imageList,
-      emotion: post.emotion,
       title: post.title,
       content: post.content,
       tags: post.tags,

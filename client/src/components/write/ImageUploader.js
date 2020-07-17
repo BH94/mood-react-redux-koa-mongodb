@@ -88,7 +88,9 @@ const ImageUploader = (props) => {
             <section>
               <DropZone {...getRootProps()}>
                 <input {...getInputProps()} />
-                <PlusOutlined style={{ fontSize: '2.4rem', color: 'white' }} />
+                <PlusOutlined
+                  style={{ fontSize: '2.4rem', color: '#242424' }}
+                />
               </DropZone>
             </section>
           )}
@@ -102,15 +104,6 @@ const ImageUploader = (props) => {
             <img src={`http://localhost:5000/${image}`} width="30%" />
           </div>
         ))}
-        {/* {images.map((image, idx) => (
-          <div
-            className="img-box"
-            key={idx}
-            onClick={() => deleteHandler(image)}
-          >
-            <img src={`http://localhost:5000/${image}`} width="30%" />
-          </div>
-        ))} */}
       </UploadImagesList>
     </ImageUploadWrapper>
   );
