@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import ImageUploader from './ImageUploader';
 
 const TitleInput = styled.input`
   background: none;
@@ -110,9 +111,11 @@ const Editor = ({ emotion, title, content, onChangeField }) => {
 
   return (
     <>
+      <ImageUploader />
       <EmojiBlock>
         {emojiList.map((emoji) => (
           <EmoJi
+            key={emoji}
             onClick={() => onClick(emoji)}
             opacity={choiceEmoji === emoji ? 1 : 0.5}
           >

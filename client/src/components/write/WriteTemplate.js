@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const WriteTemplateBlock = styled.div`
   height: 100%;
-  background: #131c27;
+  background: rgba(10, 10, 10, 0.9);
   position: absolute;
   left: 0;
   top: 0;

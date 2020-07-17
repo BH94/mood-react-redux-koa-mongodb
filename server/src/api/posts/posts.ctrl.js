@@ -1,8 +1,29 @@
 import Post from '../../models/post';
 import mongoose from 'mongoose';
 import Joi from 'joi';
+import multer from 'koa-multer';
 
 const { ObjectId } = mongoose.Types;
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, `${Date.now()}_${file.originalname}`);
+//   },
+// });
+
+// const upload = multer({ storage: storage }).single('file');
+
+// export const imageUpload = async (ctx, next) => {
+//   console.log(ctx.req.body);
+//   ctx.body = {
+//     success: true,
+//     data: ctx.state,
+//   };
+//   return;
+// };
 
 export const getPostById = async (ctx, next) => {
   const { id } = ctx.params;
