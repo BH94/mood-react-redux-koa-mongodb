@@ -6,6 +6,15 @@ import Tags from '../common/Tags';
 import PostTitleEmojiDiv from '../common/PostTitleEmoji';
 import Error from '../common/Error';
 import Loading from '../common/Loading';
+import Slider from 'react-slick';
+
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+
+const SlideBlock = styled.div`
+  width: 100%;
+  height: 100vh;
+`;
 
 const PostViewerBlock = styled.div`
   min-height: ${(props) => props.mh || '100vh'};
@@ -15,9 +24,14 @@ const PostViewerBlock = styled.div`
   background-image: ${(props) => `url(${props.imgUrl})`};
   background-size: cover;
   background-position: center;
+  position: relative;
 `;
 
 const PostBlock = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 75%;
   padding: 4rem 2rem;
   display: flex;
@@ -50,8 +64,25 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
 
   const { imageList, tags, title, content, user, publishedDate } = post;
 
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+
   return (
-    <PostViewerBlock imgUrl={`http://localhost:5000/${imageList[0]}`}>
+    <div>
+      <Slider {...settings}>
+        {imageList.map((image, idx) => {
+          return (
+            <PostViewerBlock
+              imgUrl={`http://localhost:5000/${image}`}
+            ></PostViewerBlock>
+          );
+        })}
+      </Slider>
       <PostBlock>
         <PostTitleEmojiDiv>
           <div className="title">
@@ -67,7 +98,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
         {actionButtons}
         <PostContent>{content}</PostContent>
       </PostBlock>
-    </PostViewerBlock>
+    </div>
   );
 };
 
