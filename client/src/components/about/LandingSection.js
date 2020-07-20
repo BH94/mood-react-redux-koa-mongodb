@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from '../common/Button';
-// import landingImg from '../../img/landing-page.jpg';
 import dairyImg from '../../img/dairy.jpg';
 
 const LandingBlock = styled.div`
@@ -49,7 +48,7 @@ const LandingBlock = styled.div`
 `;
 
 const JoinButton = styled(Button)`
-  border: 4px solid #4c6e97;
+  border: 4px solid rgb(0, 130, 140);
 `;
 
 const LandingSection = ({ user }) => {

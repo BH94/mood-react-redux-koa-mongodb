@@ -4,13 +4,8 @@ import BackgroundDiv from '../common/Background';
 import SubInfo from '../common/SubInfo';
 import Tags from '../common/Tags';
 import PostTitleEmojiDiv from '../common/PostTitleEmoji';
-import BackgroundSlider from 'react-background-slider';
-
-// const PostViewerBlock = styled(BackgroundDiv)`
-//   background-image: ${(props) => `url(${props.imgUrl})`};
-//   background-size: cover;
-//   background-position: center;
-// `;
+import Error from '../common/Error';
+import Loading from '../common/Loading';
 
 const PostViewerBlock = styled.div`
   min-height: ${(props) => props.mh || '100vh'};
@@ -44,25 +39,13 @@ const PostContent = styled.div`
 const PostViewer = ({ post, error, loading, actionButtons }) => {
   if (error) {
     if (error.response && error.response.status === 404) {
-      return (
-        <PostBlock>
-          <p>존재하지 않는 포스트입니다.</p>
-        </PostBlock>
-      );
+      return <Error errorMsg="찾을 수 없는 페이지입니다." />;
     }
-    return (
-      <PostBlock>
-        <p>오류 발생!</p>
-      </PostBlock>
-    );
+    return <Error errorMsg="알 수 없는 에러가 발생하였습니다." />;
   }
 
   if (loading || !post) {
-    return (
-      <PostBlock>
-        <p>로딩중입니다.</p>
-      </PostBlock>
-    );
+    return <Loading />;
   }
 
   const { imageList, tags, title, content, user, publishedDate } = post;

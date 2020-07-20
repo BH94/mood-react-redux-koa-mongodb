@@ -7,9 +7,10 @@ import PostTitleEmojiDiv from '../common/PostTitleEmoji';
 import SubInfo from '../common/SubInfo';
 import Tags from '../common/Tags';
 import { Link } from 'react-router-dom';
+import Error from '../common/Error';
+import Loading from '../common/Loading';
 
 const PostListBlock = styled(Responsive)`
-  /* margin-top: 3rem; */
   width: 90%;
 
   @media screen and (max-width: 768px) {
@@ -150,9 +151,13 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
   if (error) {
     return (
       <PostListBlock>
-        <p>에러가 발생.</p>
+        <Error errorMsg="알 수 없는 에러가 발생하였습니다." />
       </PostListBlock>
     );
+  }
+
+  if (loading) {
+    return <Loading />;
   }
 
   return (
