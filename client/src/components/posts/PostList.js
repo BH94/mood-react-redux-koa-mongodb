@@ -115,17 +115,7 @@ const PostItem = ({ post }) => {
   const backImg = imageList[0];
 
   return (
-    <PostItemBlock imgUrl={`http://localhost:5000/${backImg}`}>
-      {/* <div>
-        <BackgroundSlider
-          images={[
-            `http://localhost:5000/${backImg}`,
-            `http://localhost:5000/${backImg2}`,
-          ]}
-          duration={10}
-          transition={2}
-        />
-      </div> */}
+    <PostItemBlock imgUrl={`http://18.189.29.190:5000/${backImg}`}>
       <ItemsBlock>
         <PostTitleEmojiDiv>
           <div className="title">

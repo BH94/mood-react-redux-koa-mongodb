@@ -17,17 +17,20 @@
     "koa-bodyparser": "^4.3.0",
     "koa-multer": "^1.0.2",
     "koa-router": "^9.0.1",
+    "koa-send": "^5.0.1",
     "koa-static": "^5.0.0",
     "mongoose": "^5.9.18",
     "multer": "^1.4.2",
-    "sem": "^1.0.0"
+    "path": "^0.12.7",
+    "sem": "^1.0.0",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "eslint": "^7.2.0",
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "start:dev": "nodemon --watch src/ -r esm src/index.js"
   }
 }

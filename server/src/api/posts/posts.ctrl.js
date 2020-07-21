@@ -139,5 +139,6 @@ export const update = async (ctx) => {
     ctx.body = post;
   } catch (e) {
     ctx.throw(500, e);
+    console.log(e);
   }
 };

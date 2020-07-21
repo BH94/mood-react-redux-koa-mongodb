@@ -78,7 +78,8 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
         {imageList.map((image, idx) => {
           return (
             <PostViewerBlock
-              imgUrl={`http://localhost:5000/${image}`}
+              imgUrl={`http://18.189.29.190:5000/${image}`}
+              key={idx}
             ></PostViewerBlock>
           );
         })}

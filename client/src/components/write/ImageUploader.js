@@ -101,7 +101,7 @@ const ImageUploader = (props) => {
             key={idx}
             onClick={() => deleteHandler(image)}
           >
-            <img src={`http://localhost:5000/${image}`} width="30%" />
+            <img src={`http://18.189.29.190:5000/${image}`} width="30%" />
           </div>
         ))}
       </UploadImagesList>
