@@ -15,9 +15,6 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 1311px) {
     text-align: center;
-    .logo {
-      padding: 2rem;
-    }
     html {
       font-size: 45%;
     }

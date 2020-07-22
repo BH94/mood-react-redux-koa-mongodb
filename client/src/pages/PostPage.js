@@ -1,13 +1,14 @@
 import React from 'react';
-
-import BackgroundDiv from '../components/common/Background';
-
+import { Helmet } from 'react-helmet-async';
 import HeaderContainer from '../containers/common/HeaderContainer';
 import PostViewerContainer from '../containers/post/PostViewerContainer';
 
 const PostPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Post Detail - Today, mood</title>
+      </Helmet>
       <HeaderContainer />
       <PostViewerContainer />
     </>

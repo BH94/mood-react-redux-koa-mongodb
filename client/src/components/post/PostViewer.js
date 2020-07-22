@@ -1,20 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import BackgroundDiv from '../common/Background';
 import SubInfo from '../common/SubInfo';
 import Tags from '../common/Tags';
 import PostTitleEmojiDiv from '../common/PostTitleEmoji';
 import Error from '../common/Error';
 import Loading from '../common/Loading';
 import Slider from 'react-slick';
-
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
-
-const SlideBlock = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
 
 const PostViewerBlock = styled.div`
   min-height: ${(props) => props.mh || '100vh'};

@@ -13,6 +13,9 @@
 
 /server/uploads
 
+/client/src/fonts
+/client/src/img
+
 
 # misc
 .DS_Store
